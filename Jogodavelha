@@ -7,19 +7,15 @@ namespace JogoDaVelha{
     class Program{
         static void Main(string[] args){
 
-            //BOAS VINDAS
             Console.WriteLine ("----JOGO DA VELHA----\n" +
                 "JOGADOR 1: 'X' " +
                 "\t\tJOGADOR 2: 'O' \n");
-
-
-            //VARIAVEIS E ARRAYS
-            int jogada1, jogada2;
+                
+            int jogada1, jogada2; //Criando as variaveis 
             String[,] tabuleiro = new String[3, 3];
             bool ganhou = true;
 
-            //DEFININDO O TABULEIRO
-            tabuleiro[0, 0] = "7";
+            tabuleiro[0, 0] = "7";//Criando os tabubleiros da posição 0 a 9
             tabuleiro[0, 1] = "8";
             tabuleiro[0, 2] = "9";
 
@@ -32,8 +28,7 @@ namespace JogoDaVelha{
             tabuleiro[2, 2] = "3";
 
             do{
-                //PRIMEIRA PARTE DO TABULEIRO
-                Console.WriteLine(" -------------");
+                Console.WriteLine(" -------------"); // definindo primeira linha do tabuleiro
 
                 for (int t = 0; t < 3; t++ ) {
                     Console.Write(" | " + tabuleiro[0,t]);
@@ -56,15 +51,14 @@ namespace JogoDaVelha{
 
                 Console.WriteLine(" -------------");
 
-                /*---------------------------------------------------------------------------------------*/
-
-                /*-----------------------------------JOGADOR UM----------------------------------------*/
+                //definindo as açoes do primeiro jogador, com suas escolhas, se acertar pela vertical, horizontal ou diagonal.
+                
                 try{
-                    Console.Write("vez do Jogador 1: ");
+                    Console.Write("Agora  é a vez do Jogador 1: ");
                     jogada1 = int.Parse(Console.ReadLine());
 
 
-                    //PARTE SUPERIOR DO TABULEIRO - jogador 1 "X".
+                    //PARTE SUPERIOR DO TABULEIRO - jogador 1 "X"
                     if (jogada1 == 7)
                     {
                         tabuleiro[0, 0] = "X";
@@ -108,7 +102,7 @@ namespace JogoDaVelha{
 
                     Console.Clear();
 
-                    //PRIMEIRA PARTE DO TABULEIRO - REAPARECER TABULEIRO
+                    //Primeira parte do tabuleiro
                     Console.WriteLine(" -------------");
 
                     for (int t = 0; t < 3; t++)
@@ -190,9 +184,7 @@ namespace JogoDaVelha{
                     }
 
 
-                    /*--------------------------------------------------------------------------------------*/
-
-                    /*-----------------------------------JOGADOR DOIS----------------------------------------*/
+                    //Definindo jogador 2 e as ações aonde ele fará, definindo pela vertical,diagonal e horizontal.
 
                     Console.Write("vez do Jogador 2: ");
                     jogada2 = int.Parse(Console.ReadLine());
@@ -298,15 +290,17 @@ namespace JogoDaVelha{
                     Console.Clear();
 
                 }catch(Exception){
-                    Console.WriteLine("Apenas numeros, que contem no tabuleiro!");
+                    Console.WriteLine("Por favor, apenas numeros, que contem no tabuleiro!");
                 }
 
             } while (ganhou);
 
-            Console.WriteLine("\n\nPressione qualquer tecla para sair....");
+            Console.WriteLine("\n Pressione alguma tecla se quiser sair...");
             Console.ReadKey();
 
 
         }
     }
 }
+
+
